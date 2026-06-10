@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaBridge — Translate anything</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/linguabridge.css">
+</head>
+<body>
+
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="app-wrap">
+
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-icon">🌐</span>
+        <span class="brand-name">LinguaBridge</span>
+      </div>
+      <p class="brand-tagline">Translate anything, instantly</p>
+    </header>
+
+    <div class="card" id="container">
+
+      <!-- language bar -->
+      <div class="lang-bar">
+        <div class="lang-side">
+          <label class="lang-label">From</label>
+          <select class="from-language lang-select"></select>
+        </div>
+        <button class="exchange-btn exchange" title="Swap languages">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+        <div class="lang-side">
+          <label class="lang-label">To</label>
+          <select class="to-language lang-select"></select>
+        </div>
+      </div>
+
+      <!-- panels -->
+      <div class="panels">
+
+        <div class="panel panel-from">
+          <textarea class="from-text panel-textarea" placeholder="Type or paste text here…" maxlength="5000" spellcheck="true"></textarea>
+          <div class="panel-footer">
+            <div class="panel-actions">
+              <button class="icon-btn speak-from" title="Listen"><i class="bi bi-volume-up"></i></button>
+              <button class="icon-btn copy-from" title="Copy"><i class="bi bi-clipboard"></i></button>
+              <button class="icon-btn clear-from" title="Clear"><i class="bi bi-x-circle"></i></button>
+            </div>
+            <span class="char-count"><span id="char-used">0</span>&thinsp;/&thinsp;5000</span>
+          </div>
+        </div>
+
+        <div class="panel-divider"></div>
+
+        <div class="panel panel-to">
+          <div class="shimmer-overlay" id="shimmer"></div>
+          <textarea class="to-text panel-textarea" placeholder="Translation appears here…" readonly></textarea>
+          <div class="panel-footer">
+            <div class="panel-actions">
+              <button class="icon-btn speak-to" title="Listen"><i class="bi bi-volume-up"></i></button>
+              <button class="icon-btn copy-to" title="Copy"><i class="bi bi-clipboard"></i></button>
+            </div>
+            <span id="confidence-badge" class="confidence-badge" style="display:none"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- voice row -->
+      <div class="voice-row">
+        <button id="startRecording" class="voice-btn">
+          <i class="bi bi-mic-fill"></i><span>Speak</span>
+        </button>
+        <button id="stopRecording" class="voice-btn voice-stop" style="display:none">
+          <i class="bi bi-stop-circle-fill"></i><span>Stop</span>
+        </button>
+        <button id="playTranslation" class="voice-btn">
+          <i class="bi bi-play-circle-fill"></i><span>Play</span>
+        </button>
+      </div>
+
+      <button id="translate-btn" class="translate-btn">
+        <i class="bi bi-translate"></i> Translate
+      </button>
+
+    </div>
+
+    <!-- history -->
+    <div class="history-wrap">
+      <div class="history-head">
+        <span class="history-title">Recent</span>
+        <button id="clear-history" class="ghost-btn">Clear all</button>
+      </div>
+      <div id="history-list" class="history-list">
+        <p class="history-empty">Your translations will appear here.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="toast" class="toast">Copied!</div>
+
+  <script src="js/countries.js"></script>
+  <script src="js/linguabridge.js"></script>
+</body>
+</html>
